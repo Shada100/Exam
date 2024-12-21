@@ -15,7 +15,6 @@ const createBlog = async (req, res) => {
   if (!title || !body) {
     return res.status(400).send("Title and body are required");
   }
-  
 
   const readingTime = calculateReadingTime(body);
   const blog = new Blog({
@@ -50,11 +49,11 @@ const getBlogs = async (req, res) => {
     sort[sortBy] = -1; // Sort descending
   }
   const validSortFields = ["read_count", "reading_time", "timestamp"];
-if (sortBy && !validSortFields.includes(sortBy)) {
-  return res.status(400).send("Invalid sort field");
-}
+  if (sortBy && !validSortFields.includes(sortBy)) {
+    return res.status(400).send("Invalid sort field");
+  }
 
-
+  
   const blogs = await Blog.find(query)
     .populate("author", "first_name last_name email") // Populate author details
     .sort(sort)
@@ -109,9 +108,11 @@ const editBlog = async (req, res) => {
   if (blog.author.toString() !== req.userId)
     return res.status(403).send("Not authorized");
   if (!title && !description && !body && !tags) {
-    return res.status(400).send("At least one field is required to update the blog");
+    return res
+      .status(400)
+      .send("At least one field is required to update the blog");
   }
-  
+
   blog.title = title || blog.title;
   blog.description = description || blog.description;
   blog.body = body || blog.body;
