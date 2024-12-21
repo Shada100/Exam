@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+const { Schema, model } = require("mongoose");
 
 const blogSchema = new Schema({
   title: { type: String, required: true, unique: true },
@@ -11,5 +11,4 @@ const blogSchema = new Schema({
   tags: [String],
   timestamp: { type: Date, default: Date.now },
 });
-
-export default model("Blog", blogSchema);
+module.exports = model("Blog", blogSchema);
