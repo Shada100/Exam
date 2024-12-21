@@ -1,9 +1,12 @@
 const request = require("supertest");
 const app = require("../app/server");
 const mongoose = require("mongoose");
+
 const User = require("../models/user");
 const Blog = require("../models/blog");
 const { generateToken } = require("../middleware/authmiddleware");
+
+mongoose.set("strictQuery", true);
 
 // Test setup, database connections, and cleanup
 beforeAll(async () => {

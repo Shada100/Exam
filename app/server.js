@@ -2,10 +2,13 @@ require("dotenv").config(); // For environment variables
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+
 const authroutes = require("../routes/authroutes"); // Auth routes
 const blogroutes = require("../routes/blogroutes"); // Blog routes
 
 const app = express();
+
+mongoose.set("strictQuery", true);
 
 // Middleware
 app.use(cors());
