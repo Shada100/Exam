@@ -20,7 +20,8 @@ app.use("/api/blog", blogroutes); // Blog routes
 
 // MongoDB Connection
 const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/blogdb";
+const MONGO_URI =
+  "mongodb+srv://shadafunmi421:P6iCaCfKNOxkZ7v4@apicluster.z36wa.mongodb.net/?retryWrites=true&w=majority&appName=apicluster";
 
 mongoose
   .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
