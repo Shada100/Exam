@@ -24,7 +24,9 @@ router.post("/login", async (req, res) => {
   const isMatch = await user.comparePassword(password);
   if (!isMatch) return res.status(400).send("Invalid credentials");
 
-   // Generate JWT token for the user
-   const token = generateToken(user._id);
-   res.status(200).send({ token });
+  // Generate JWT token for the user
+  const token = generateToken(user._id);
+  res.status(200).send({ token });
 });
+
+module.exports = router;

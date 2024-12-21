@@ -21,3 +21,6 @@ router.put("/blogs/:id/state", authenticateJWT, updateBlogState);
 router.put("/blogs/:id", authenticateJWT, editBlog);
 router.delete("/blogs/:id", authenticateJWT, deleteBlog);
 router.get("/user/blogs", authenticateJWT, getUserBlogs);
+
+
+module.exports = router;
