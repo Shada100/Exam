@@ -7,7 +7,7 @@ const {
   editBlog,
   deleteBlog,
   getUserBlogs,
-} = require("../controllers/blogcontroller");
+} = require("../controller/blogcontroller");
 const { authenticateJWT } = require("../middleware/authmiddleware");
 const router = express.Router();
 
