@@ -2,8 +2,8 @@ require('dotenv').config(); // For environment variables
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const authRoutes = require('./routes/authroutes'); // Auth routes
-const blogRoutes = require('./routes/blogroutes'); // Blog routes
+const authRoutes = require('../routes/authroutes'); // Auth routes
+const blogRoutes = require('../routes/blogroutes'); // Blog routes
 
 const app = express();
 
