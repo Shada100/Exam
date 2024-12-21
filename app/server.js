@@ -16,7 +16,7 @@ app.use(express.json()); // Parse incoming JSON requests
 
 // Routes
 app.use("/api/auth", authroutes); // Authentication routes
-app.use("/api", blogroutes); // Blog routes
+app.use("/api/blog", blogroutes); // Blog routes
 
 // MongoDB Connection
 const PORT = process.env.PORT || 3000;
