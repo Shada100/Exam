@@ -19,7 +19,7 @@ app.use("/api/auth", authroutes); // Authentication routes
 app.use("/api/blog", blogroutes); // Blog routes
 
 // MongoDB Connection
-const PORT = 3000;
+const PORT = process.env.POR || 3000;
 const MONGO_URI =
   "mongodb+srv://shadafunmi421:P6iCaCfKNOxkZ7v4@apicluster.z36wa.mongodb.net/?retryWrites=true&w=majority&appName=apicluster";
 
