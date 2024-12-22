@@ -1,4 +1,4 @@
-const Blog = require("../models/blog").default;
+const Blog = require("../models/blog");
 const User = require("../models/user");
 
 // Helper function to calculate reading time (approx. 200 words per minute)
@@ -53,7 +53,6 @@ const getBlogs = async (req, res) => {
     return res.status(400).send("Invalid sort field");
   }
 
-  
   const blogs = await Blog.find(query)
     .populate("author", "first_name last_name email") // Populate author details
     .sort(sort)

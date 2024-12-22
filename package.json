@@ -5,9 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node app/server.js",
-    "test": "jest"
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.3.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -17,7 +18,9 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
-    "supertest": "^6.3.3"
+    "mongodb-memory-server": "^10.1.2",
+    "supertest": "^6.3.3",
+    "v": "^0.3.0"
   },
   "engines": {
     "node": ">=19.6.0"
