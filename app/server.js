@@ -59,3 +59,4 @@ if (process.env.NODE_ENV !== "test") {
       console.error("Failed to connect to MongoDB", err);
     });
 }
+module.exports = app;

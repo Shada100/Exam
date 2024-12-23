@@ -1,7 +1,6 @@
 const request = require("supertest");
 const server = require("../app/server");
 const mongoose = require("mongoose");
-const { MongoMemoryServer } = require("mongodb-memory-server");
 const http = require("http");
 const app = http.createServer(server);
 
@@ -13,12 +12,11 @@ const { generateToken } = require("../middleware/authmiddleware");
 jest.setTimeout(60000); // 60 seconds
 
 mongoose.set("strictQuery", true);
-let mongoServer;
 
 // Global setup
 beforeAll(async () => {
-  mongoServer = await MongoMemoryServer.create();
-  const uri = mongoServer.getUri();
+  const uri =
+    "mongodb+srv://shadafunmi421:P6iCaCfKNOxkZ7v4@apicluster.z36wa.mongodb.net/?retryWrites=true&w=majority&appName=apicluster";
   mongoose
     .connect(uri, {
       useNewUrlParser: true,
@@ -37,7 +35,6 @@ beforeEach(async () => {
 afterAll(async () => {
   await mongoose.connection.db.dropDatabase();
   await mongoose.connection.close();
-  await mongoServer.stop();
   //app.close();
 });
 
